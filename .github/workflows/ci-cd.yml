@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-push:
 
     runs-on: ubuntu-latest
 
@@ -14,8 +14,14 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Build Docker Image
-      run: docker build -t my-node-api .
+    # Login to Docker Hub
+    - name: Login to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    - name: Run Container
-      run: docker run -d -p 3000:3000 my-node-api
+    # Build Docker Image
+    - name: Build Docker Image
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/node-api .
+
+    # Push to Docker Hub
+    - name: Push Docker Image
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/node-api
