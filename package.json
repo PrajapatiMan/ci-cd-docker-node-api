@@ -1,0 +1,12 @@
+{
+  "name": "ci-cd-docker-node-api",
+  "version": "1.0.0",
+  "description": "Medium CI/CD project with Docker and GitHub Actions",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
