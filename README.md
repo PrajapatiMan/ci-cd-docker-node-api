@@ -38,7 +38,7 @@ Whenever code is pushed to the `main` branch:
 https://hub.docker.com/r/YOUR_USERNAME/node-api
 ```
 
-Replace `PrajapatiMan` with your Docker Hub username.
+Replace `manprajapati` with your Docker Hub username.
 
 ---
 
